@@ -8,6 +8,8 @@ It adds structured agent tool results, optional proxy-tool plumbing, and list/pr
 
 ## Install
 
+From [pkg.go.dev](https://pkg.go.dev/github.com/brandonkramer/mcpkit):
+
 ```bash
 go get github.com/brandonkramer/mcpkit
 ```
