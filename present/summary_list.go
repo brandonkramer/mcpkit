@@ -1,5 +1,10 @@
 package present
 
+//
+// ────────────────────────────────────────
+// list summarization.
+//
+
 import "github.com/brandonkramer/mcpkit/summarize"
 
 // SummarizeToolList builds envelope summary and next hints from tool result list data.

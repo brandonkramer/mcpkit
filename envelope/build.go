@@ -1,5 +1,10 @@
 package envelope
 
+//
+// ────────────────────────────────────────
+// envelope builder.
+//
+
 import "fmt"
 
 const defaultFailureSummary = "request failed"

@@ -1,5 +1,10 @@
 package present
 
+//
+// ────────────────────────────────────────
+// text previews.
+//
+
 import "github.com/brandonkramer/mcpkit/envelope"
 
 // TextPreview holds a bounded text preview for tool result data.

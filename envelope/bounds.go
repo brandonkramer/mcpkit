@@ -1,5 +1,10 @@
 package envelope
 
+//
+// ────────────────────────────────────────
+// bounds and previews.
+//
+
 import "fmt"
 
 // BoundList is a capped slice with truncation metadata.

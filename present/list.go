@@ -1,5 +1,10 @@
 package present
 
+//
+// ────────────────────────────────────────
+// list helpers.
+//
+
 import (
 	"reflect"
 
@@ -26,6 +31,11 @@ func CapSlice[T any](items []T, limit int) ([]T, summarize.Meta) {
 func PreviewField(text string, limit int) (preview string, truncated bool) {
 	return envelope.PreviewField(text, limit)
 }
+
+//
+// ────────────────────────────────────────
+// list accessors.
+//
 
 func listDataTotal(data any) (int, bool) {
 	list, ok := data.(ToolListData)

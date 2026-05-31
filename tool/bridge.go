@@ -18,12 +18,12 @@ func CallTyped[Args, Result any](b *Bridge, ctx context.Context, method string, 
 	raw, err := b.Backend.Call(ctx, method, args)
 	if err != nil {
 		var zero Result
-		return zero, err
+		return zero, fmt.Errorf("call %s: %w", method, err)
 	}
 	out, ok := raw.(Result)
 	if !ok {
 		var zero Result
-		return zero, fmt.Errorf("unexpected result type for %s", method)
+		return zero, fmt.Errorf("call %s: unexpected result type %T", method, raw)
 	}
 	return out, nil
 }
@@ -33,12 +33,12 @@ func CallNoArgs[Result any](b *Bridge, ctx context.Context, method string) (Resu
 	raw, err := b.Backend.Call(ctx, method, nil)
 	if err != nil {
 		var zero Result
-		return zero, err
+		return zero, fmt.Errorf("call %s: %w", method, err)
 	}
 	out, ok := raw.(Result)
 	if !ok {
 		var zero Result
-		return zero, fmt.Errorf("unexpected result type for %s", method)
+		return zero, fmt.Errorf("call %s: unexpected result type %T", method, raw)
 	}
 	return out, nil
 }

@@ -12,7 +12,23 @@ It adds structured agent tool results, optional proxy-tool plumbing, and list/pr
 go get github.com/brandonkramer/mcpkit
 ```
 
-## Integration levels
+## Development
+
+Install git hooks once in the repo:
+
+```bash
+lefthook install
+```
+
+Hooks run `golangci-lint` on commit (staged `.go` files) and `./scripts/check.sh` on push (tests, examples build, lint). CI runs the same checks on pull requests.
+
+```bash
+make check    # full local CI script
+make test
+make lint
+```
+
+---
 
 | Level | Packages | When |
 | --- | --- | --- |

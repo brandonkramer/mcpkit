@@ -7,7 +7,7 @@ test:
 	go test -race -cover ./...
 
 lint:
-	golangci-lint run ./...
+	./scripts/lint.sh
 
 tidy:
 	go mod tidy

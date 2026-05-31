@@ -1,5 +1,10 @@
 package envelope
 
+//
+// ────────────────────────────────────────
+// result types.
+//
+
 // Envelope is the agent-facing tool result payload.
 type Envelope struct {
 	OK            bool            `json:"ok"`

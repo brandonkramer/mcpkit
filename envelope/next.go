@@ -1,5 +1,10 @@
 package envelope
 
+//
+// ────────────────────────────────────────
+// continuation hints.
+//
+
 import (
 	"fmt"
 	"strings"

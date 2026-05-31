@@ -1,5 +1,10 @@
 package present
 
+//
+// ────────────────────────────────────────
+// mapped list views.
+//
+
 import "github.com/brandonkramer/mcpkit/summarize"
 
 // MapCapList caps items and maps each element into a presentation view.

@@ -7,6 +7,7 @@ import (
 
 func TestNormalizeID(t *testing.T) {
 	t.Parallel()
+
 	type args struct{ ID string }
 	norm := func(s string) (string, error) {
 		if s == "" {
@@ -14,12 +15,30 @@ func TestNormalizeID(t *testing.T) {
 		}
 		return "N:" + s, nil
 	}
-	got, err := NormalizeID(args{ID: "01"}, norm, func(a *args) *string { return &a.ID })
-	if err != nil || got.ID != "N:01" {
-		t.Fatalf("got=%+v err=%v", got, err)
+
+	cases := []struct {
+		name    string
+		id      string
+		want    string
+		wantErr bool
+	}{
+		{name: "normalizes id", id: "01", want: "N:01"},
+		{name: "rejects empty", id: "", wantErr: true},
 	}
-	_, err = NormalizeID(args{ID: ""}, norm, func(a *args) *string { return &a.ID })
-	if err == nil {
-		t.Fatal("expected error")
+
+	for _, tc := range cases {
+		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
+			got, err := NormalizeID(args{ID: tc.id}, norm, func(a *args) *string { return &a.ID })
+			if tc.wantErr {
+				if err == nil {
+					t.Fatal("expected error")
+				}
+				return
+			}
+			if err != nil || got.ID != tc.want {
+				t.Fatalf("got=%+v err=%v", got, err)
+			}
+		})
 	}
 }

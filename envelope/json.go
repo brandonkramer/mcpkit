@@ -1,5 +1,10 @@
 package envelope
 
+//
+// ────────────────────────────────────────
+// json encoding.
+//
+
 import "encoding/json"
 
 // MarshalIndent encodes an envelope as indented JSON.
