@@ -14,22 +14,6 @@ From [pkg.go.dev](https://pkg.go.dev/github.com/brandonkramer/mcpkit):
 go get github.com/brandonkramer/mcpkit
 ```
 
-## Development
-
-Lefthook and golangci-lint are pinned in `go.mod` as **tools** (dev-only). Install git hooks once per clone:
-
-```bash
-make install-hooks
-```
-
-Hooks and `make lint` use `go tool` binaries from `go.mod`. Pre-commit lints staged `.go` files; pre-push runs `./scripts/check.sh`. CI runs the same checks.
-
-```bash
-make check    # full local CI script
-make test
-make lint
-```
-
 ---
 
 | Level | Packages | When |
@@ -171,3 +155,21 @@ _ = http.ListenAndServe(":8080", handler)
 | `present` | `ToolListData`, `WrapToolList`, `ToolListItems`, `MapCapList`, `RedactText` |
 | `tool` | Proxy pipeline, `ResolveWorkDir`, `PrepareWorkDir`, `NormalizeField`, `NormalizeID` |
 | `server` | Stdio bootstrap via `ServeStdio` / `New` |
+
+---
+
+## Development
+
+Lefthook and golangci-lint are pinned in `go.mod` as **tools** (dev-only). Install git hooks once per clone:
+
+```bash
+make install-hooks
+```
+
+Hooks and `make lint` use `go tool` binaries from `go.mod`. Pre-commit lints staged `.go` files; pre-push runs `./scripts/check.sh`. CI runs the same checks.
+
+```bash
+make check    # full local CI script
+make test
+make lint
+```
