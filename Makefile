@@ -1,4 +1,4 @@
-.PHONY: build test lint tidy check examples
+.PHONY: build test lint tidy check examples install-hooks
 
 build:
 	go build ./...
@@ -17,3 +17,6 @@ examples:
 
 check:
 	./scripts/check.sh
+
+install-hooks:
+	go tool lefthook install

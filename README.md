@@ -16,13 +16,13 @@ go get github.com/brandonkramer/mcpkit
 
 ## Development
 
-Install git hooks once in the repo:
+Lefthook and golangci-lint are pinned in `go.mod` as **tools** (dev-only). Install git hooks once per clone:
 
 ```bash
-lefthook install
+make install-hooks
 ```
 
-Hooks run `golangci-lint` on commit (staged `.go` files) and `./scripts/check.sh` on push (tests, examples build, lint). CI runs the same checks on pull requests.
+Hooks and `make lint` use `go tool` binaries from `go.mod`. Pre-commit lints staged `.go` files; pre-push runs `./scripts/check.sh`. CI runs the same checks.
 
 ```bash
 make check    # full local CI script
